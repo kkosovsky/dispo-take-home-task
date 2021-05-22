@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E4F47676062E586C7B62BF75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479BD61B616562D91F4AE /* MainView.swift */; };
-		E4F478EDE64D307BF9E6FD62 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F475290B1B06E1F959BAA0 /* Operators.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E4F475290B1B06E1F959BAA0 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		E4F479BD61B616562D91F4AE /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				FF9415F525EEF5760029E28F /* GifInfo.swift */,
 				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
 				FF9415E525EEDF380029E28F /* TenorAPIClient.swift */,
-				E4F475290B1B06E1F959BAA0 /* Operators.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -140,8 +137,8 @@
 			);
 			name = "Dispo Take Home";
 			packageProductDependencies = (
-				FF9415CE25EED15B0029E28F /* XCSwiftPackageProductDependency */,
-				FF9415DE25EEDC000029E28F /* XCSwiftPackageProductDependency */,
+				FF9415CE25EED15B0029E28F /* SnapKit */,
+				FF9415DE25EEDC000029E28F /* KingfisherSwiftUI */,
 			);
 			productName = "Dispo Take Home";
 			productReference = FF9415B125EECD340029E28F /* Dispo Take Home.app */;
@@ -171,8 +168,8 @@
 			);
 			mainGroup = FF9415A825EECD340029E28F;
 			packageReferences = (
-				FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference */,
-				FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference */,
+				FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit.git" */,
+				FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 			);
 			productRefGroup = FF9415B225EECD340029E28F /* Products */;
 			projectDirPath = "";
@@ -210,7 +207,6 @@
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
-				E4F478EDE64D307BF9E6FD62 /* Operators.swift in Sources */,
 				E4F47676062E586C7B62BF75 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +407,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference */ = {
+		FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/snapkit/snapkit.git";
 			requirement = {
@@ -419,7 +415,7 @@
 				version = 5.0.0;
 			};
 		};
-		FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference */ = {
+		FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -430,14 +426,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FF9415CE25EED15B0029E28F /* XCSwiftPackageProductDependency */ = {
+		FF9415CE25EED15B0029E28F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference */;
+			package = FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit.git" */;
 			productName = SnapKit;
 		};
-		FF9415DE25EEDC000029E28F /* XCSwiftPackageProductDependency */ = {
+		FF9415DE25EEDC000029E28F /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference */;
+			package = FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = KingfisherSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
