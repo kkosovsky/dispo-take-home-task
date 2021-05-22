@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
 
     loadResults
       .sink { [weak self] results in
-        // load search results into data source
       }
       .store(in: &cancellables)
 
@@ -50,7 +49,7 @@ class MainViewController: UIViewController {
 
   private var layout: UICollectionViewLayout {
     // TODO: implement
-    fatalError()
+    UICollectionViewLayout()
   }
 
   private lazy var collectionView: UICollectionView = {
