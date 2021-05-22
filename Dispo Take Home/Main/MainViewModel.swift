@@ -2,30 +2,32 @@ import Combine
 import UIKit
 
 func mainViewModel(
-  cellTapped: AnyPublisher<SearchResult, Never>,
-  searchText: AnyPublisher<String, Never>,
-  viewWillAppear: AnyPublisher<Void, Never>
+    cellTapped: AnyPublisher<SearchResult, Never>,
+    searchText: AnyPublisher<String, Never>,
+    viewWillAppear: AnyPublisher<Void, Never>
 ) -> (
-  loadResults: AnyPublisher<[SearchResult], Never>,
-  pushDetailView: AnyPublisher<SearchResult, Never>
+    loadResults: AnyPublisher<[SearchResult], Never>,
+    pushDetailView: AnyPublisher<SearchResult, Never>
 ) {
-  let api = TenorAPIClient.live
+    let api = TenorAPIClient.live
 
-  let featuredGifs = Empty<[SearchResult], Never>()
+    let featuredGifs = Empty<[SearchResult], Never>()
 
-  let searchResults = searchText
-    .map { api.searchGIFs($0) }
-    .switchToLatest()
+    let searchResults = searchText
+        .map {
+            api.searchGIFs($0)
+        }
+        .switchToLatest()
 
-  // show featured gifs when there is no search query, otherwise show search results
-  let loadResults = searchResults
-    .eraseToAnyPublisher()
+    // show featured gifs when there is no search query, otherwise show search results
+    let loadResults = searchResults
+        .eraseToAnyPublisher()
 
-  let pushDetailView = Empty<SearchResult, Never>()
-    .eraseToAnyPublisher()
+    let pushDetailView = Empty<SearchResult, Never>()
+        .eraseToAnyPublisher()
 
-  return (
-    loadResults: loadResults,
-    pushDetailView: pushDetailView
-  )
+    return (
+        loadResults: loadResults,
+        pushDetailView: pushDetailView
+    )
 }
