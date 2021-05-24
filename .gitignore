@@ -17,7 +17,7 @@
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
-build/
+.build/
 dist/
 DerivedData/
 *.moved-aside

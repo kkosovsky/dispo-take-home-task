@@ -41,7 +41,8 @@ extension TenorAPIClient {
             SearchResult(
               id: $0.id,
               gifUrl: $0.media[0].gif.url,
-              text: $0.h1_title ?? ($0.title.isEmpty ? "No title" : $0.title)
+              preview: $0.media[0].gif.preview,
+              text: $0.title.isEmpty ? "No title" : $0.title
             )
           }
         }
@@ -75,7 +76,8 @@ extension TenorAPIClient {
             SearchResult(
               id: $0.id,
               gifUrl: $0.media[0].gif.url,
-                text: $0.h1_title ?? ($0.title.isEmpty ? "No title" : $0.title)
+              preview: $0.media[0].gif.preview,
+              text: $0.title.isEmpty ? "No title" : $0.title
             )
           }
         }
@@ -92,7 +94,6 @@ private struct APIListResponse: Codable {
 
   struct Result: Codable {
     let id: String
-    let h1_title: String?
     let title: String
     let media: [Media]
 

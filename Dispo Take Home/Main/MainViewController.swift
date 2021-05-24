@@ -1,4 +1,5 @@
 import Combine
+import Kingfisher
 import UIKit
 
 final class MainViewController: UIViewController {
@@ -73,13 +74,19 @@ final class MainViewController: UIViewController {
 
     private func makeDataSource() -> DataSource {
         DataSource(collectionView: mainView.collectionView) { (collectionView, indexPath, searchResult) in
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: MainCollectionViewCell.reuseIdentifier,
-                for: indexPath
-            ) as? MainCollectionViewCell
+            let cell = collectionView.dequeueCell(MainCollectionViewCell.self, for: indexPath)
+            cell.gifTextLabel.text = searchResult.text
 
-            cell?.gifTextLabel.text = searchResult.text
-            cell?.gifImageView.image = UIImage(systemName: "chevron.right")
+            let downloader = ImageDownloader.default
+            downloader.downloadImage(with: searchResult.gifUrl) { result in
+                switch result {
+                case .success(let value):
+                    cell.gifImageView.image = value.image
+                case .failure(let error):
+                    print(error)
+                }
+            }
+
             return cell
         }
     }
