@@ -6,7 +6,7 @@ final class MainView: UIView {
     private var layout: UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalWidth(1.0)
+            heightDimension: .fractionalHeight(0.2)
         )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -41,17 +41,14 @@ final class MainView: UIView {
 
     init() {
         super.init(frame: .zero)
-        addSubviews()
+        backgroundColor = .white
+        addSubview(collectionView)
         setUpLayout()
     }
 
     required init?(coder: NSCoder) { nil }
 
     // MARK: - Private
-
-    private func addSubviews() {
-        addSubview(collectionView)
-    }
 
     private func setUpLayout() {
         collectionView.snp.makeConstraints {
