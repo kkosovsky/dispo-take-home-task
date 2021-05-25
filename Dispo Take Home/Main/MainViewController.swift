@@ -21,17 +21,13 @@ final class MainViewController: UIViewController {
 
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, SearchResult>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, SearchResult>
-
-    private lazy var dataSource = makeDataSource()
-
+    private let searchTextChangedSubject = PassthroughSubject<String, Never>()
     private var searchResults: [SearchResult] = []
-
+    private var cancellables = Set<AnyCancellable>()
+    private lazy var dataSource = makeDataSource()
     private lazy var mainView: MainView = {
         MainView()
     }()
-
-    private var cancellables = Set<AnyCancellable>()
-    private let searchTextChangedSubject = PassthroughSubject<String, Never>()
 
     private func setUpCollectionView() {
         mainView.collectionView.registerCell(MainCollectionViewCell.self)
@@ -40,22 +36,21 @@ final class MainViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        let (
-            loadResults,
-            pushDetailView
-        ) = mainViewModel(
+        let input: MainViewModelInput = (
             cellTapped: Empty().eraseToAnyPublisher(),
             searchText: searchTextChangedSubject.eraseToAnyPublisher(),
             viewWillAppear: Empty().eraseToAnyPublisher()
         )
 
-        loadResults
+        let output: MainViewModelOutput = input |> liveMainViewModel
+
+        output.loadResults
             .sink { [weak self] results in
                 self?.applySnapshot(with: results)
             }
             .store(in: &cancellables)
 
-        pushDetailView
+        output.pushDetailView
             .sink { [weak self] result in
                 // push detail view
             }

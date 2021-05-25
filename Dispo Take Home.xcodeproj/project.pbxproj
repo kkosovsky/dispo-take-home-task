@@ -11,12 +11,17 @@
 		88220F07265BC33F0004168B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 88220F06265BC33F0004168B /* Kingfisher */; };
 		E4F4712F5B9B989077EB5754 /* UICollectionView+RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F474397714C7D55B4C79D1 /* UICollectionView+RegisterCell.swift */; };
 		E4F4723865F43373EDCE974D /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47071FFF7519C2ED55E62 /* Section.swift */; };
+		E4F472A19C09C777E2CD524B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F476B8A072B779F50343FC /* Operators.swift */; };
 		E4F47301F5233848646D7FB3 /* UICollectionViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F477BF14992F73F90F7CDC /* UICollectionViewCell+Reusable.swift */; };
+		E4F4750E8C8AEEA346E3EF53 /* GifInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4743CB46E97904CCED399 /* GifInfo.swift */; };
+		E4F4755F16B81BCDDAD07249 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479BB5D27F3040824FEA7 /* SearchResult.swift */; };
 		E4F475B5B6A6DE1D5F7DE5E6 /* Reusable+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47C0AB9CAADFAAA7A3097 /* Reusable+Default.swift */; };
 		E4F47676062E586C7B62BF75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479BD61B616562D91F4AE /* MainView.swift */; };
 		E4F478A417657F7F5BE98EC6 /* UICollectionView+DequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */; };
 		E4F478F71CE291E64E676D44 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4785D4F8A08ECE7736930 /* Reusable.swift */; };
 		E4F47A96C5AB754C7F8758C4 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47A67350CC01B757394C5 /* MainCollectionViewCell.swift */; };
+		E4F47ACF8A09D4E06CCC6FF2 /* TenorAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */; };
+		E4F47B250F0581C36F7FFEAF /* ApiListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -26,18 +31,20 @@
 		FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415D125EED2590029E28F /* DetailViewController.swift */; };
 		FF9415D525EED60B0029E28F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415D425EED60B0029E28F /* Constants.swift */; };
 		FF9415DB25EEDBB50029E28F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415DA25EEDBB50029E28F /* MainViewModel.swift */; };
-		FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415E125EEDC3A0029E28F /* SearchResult.swift */; };
-		FF9415E625EEDF380029E28F /* TenorAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415E525EEDF380029E28F /* TenorAPIClient.swift */; };
-		FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415F525EEF5760029E28F /* GifInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4F47071FFF7519C2ED55E62 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		E4F474397714C7D55B4C79D1 /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
+		E4F4743CB46E97904CCED399 /* GifInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
 		E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
+		E4F476B8A072B779F50343FC /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		E4F477BF14992F73F90F7CDC /* UICollectionViewCell+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		E4F4785D4F8A08ECE7736930 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorAPIClient.swift; sourceTree = "<group>"; };
+		E4F479BB5D27F3040824FEA7 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E4F479BD61B616562D91F4AE /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiListResponse.swift; sourceTree = "<group>"; };
 		E4F47A67350CC01B757394C5 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		E4F47C0AB9CAADFAAA7A3097 /* Reusable+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+Default.swift"; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,9 +58,6 @@
 		FF9415D125EED2590029E28F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF9415D425EED60B0029E28F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FF9415DA25EEDBB50029E28F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		FF9415E125EEDC3A0029E28F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		FF9415E525EEDF380029E28F /* TenorAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorAPIClient.swift; sourceTree = "<group>"; };
-		FF9415F525EEF5760029E28F /* GifInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E4F47807D46CFBFB2A046576 /* ApiClient */ = {
+			isa = PBXGroup;
+			children = (
+				E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */,
+			);
+			path = ApiClient;
+			sourceTree = "<group>";
+		};
 		E4F4789EC97BD316132C8CCA /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +97,25 @@
 			path = UICollectionView;
 			sourceTree = "<group>";
 		};
+		E4F478E24E0A0F867A80DD76 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E4F4790AC42FBC556FBEBEA7 /* Model */,
+				E4F47807D46CFBFB2A046576 /* ApiClient */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E4F4790AC42FBC556FBEBEA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4F479BB5D27F3040824FEA7 /* SearchResult.swift */,
+				E4F4743CB46E97904CCED399 /* GifInfo.swift */,
+				E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E4F4792ED89AB8FF52F8832F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +123,14 @@
 				E4F4789EC97BD316132C8CCA /* UICollectionView */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4F47BC451D540D2E06C8BD1 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				E4F476B8A072B779F50343FC /* Operators.swift */,
+			);
+			path = Functional;
 			sourceTree = "<group>";
 		};
 		E4F47C677520F540E9552886 /* Reusable */ = {
@@ -133,6 +172,7 @@
 				FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */,
 				FF9415C225EECD350029E28F /* Info.plist */,
 				FF9415BC25EECD350029E28F /* Preview Content */,
+				E4F478E24E0A0F867A80DD76 /* Networking */,
 			);
 			path = "Dispo Take Home";
 			sourceTree = "<group>";
@@ -169,10 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				FF9415D425EED60B0029E28F /* Constants.swift */,
-				FF9415F525EEF5760029E28F /* GifInfo.swift */,
-				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
-				FF9415E525EEDF380029E28F /* TenorAPIClient.swift */,
 				E4F4792ED89AB8FF52F8832F /* Extensions */,
+				E4F47BC451D540D2E06C8BD1 /* Functional */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -225,8 +263,8 @@
 			);
 			mainGroup = FF9415A825EECD340029E28F;
 			packageReferences = (
-				FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit" */,
-				FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit.git" */,
+				FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 			);
 			productRefGroup = FF9415B225EECD340029E28F /* Products */;
 			projectDirPath = "";
@@ -255,11 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */,
-				FF9415E625EEDF380029E28F /* TenorAPIClient.swift in Sources */,
 				FF9415DB25EEDBB50029E28F /* MainViewModel.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
-				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
@@ -272,6 +307,11 @@
 				E4F4712F5B9B989077EB5754 /* UICollectionView+RegisterCell.swift in Sources */,
 				E4F4723865F43373EDCE974D /* Section.swift in Sources */,
 				E4F478A417657F7F5BE98EC6 /* UICollectionView+DequeueCell.swift in Sources */,
+				E4F4755F16B81BCDDAD07249 /* SearchResult.swift in Sources */,
+				E4F4750E8C8AEEA346E3EF53 /* GifInfo.swift in Sources */,
+				E4F47ACF8A09D4E06CCC6FF2 /* TenorAPIClient.swift in Sources */,
+				E4F47B250F0581C36F7FFEAF /* ApiListResponse.swift in Sources */,
+				E4F472A19C09C777E2CD524B /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +511,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit" */ = {
+		FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/snapkit/snapkit.git";
 			requirement = {
@@ -479,7 +519,7 @@
 				version = 5.0.0;
 			};
 		};
-		FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -492,12 +532,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		88220F06265BC33F0004168B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		FF9415CE25EED15B0029E28F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit" */;
+			package = FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit.git" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
