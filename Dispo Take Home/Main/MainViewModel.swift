@@ -18,22 +18,27 @@ func liveMainViewModel(input: MainViewModelInput) -> MainViewModelOutput {
 
 func mainViewModel(input: MainViewModelInput) -> (TenorApiClientType) -> MainViewModelOutput {
     { apiClient in
-        let featuredGifs = Empty<[SearchResult], Never>()
+        let emptyText = input.searchText
+            .filter { $0.isEmpty }
+            .map { _ in Void() }
+
+        let featuredGifs = input.viewWillAppear
+            .merge(with: emptyText)
+            .map(apiClient.featuredGIFs)
+            .switchToLatest()
+
         let searchResults = input.searchText
+            .filter { !$0.isEmpty }
             .map {
                 apiClient.searchGIFs($0)
             }
             .switchToLatest()
 
-        let loadResults = searchResults
-            .eraseToAnyPublisher()
+        let loadResults = searchResults.merge(with: featuredGifs).eraseToAnyPublisher()
 
         let pushDetailView = Empty<SearchResult, Never>()
             .eraseToAnyPublisher()
 
-        return (
-            loadResults: loadResults,
-            pushDetailView: pushDetailView
-        )
+        return MainViewModelOutput(loadResults: loadResults, pushDetailView: pushDetailView)
     }
 }

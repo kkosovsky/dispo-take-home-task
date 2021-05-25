@@ -10,6 +10,7 @@ final class MainView: UIView {
         )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 4.0, leading: 0.0, bottom: 4.0, trailing: 0.0)
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalWidth(1.0)
@@ -17,6 +18,7 @@ final class MainView: UIView {
 
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 8.0, leading: 0.0, bottom: 0.0, trailing: 0.0)
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }

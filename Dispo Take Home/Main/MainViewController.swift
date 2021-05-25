@@ -17,11 +17,17 @@ final class MainViewController: UIViewController {
         bindViewModel()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewWillAppearSubject.send(())
+    }
+
     // MARK: - Private
 
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, SearchResult>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, SearchResult>
     private let searchTextChangedSubject = PassthroughSubject<String, Never>()
+    private let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     private var searchResults: [SearchResult] = []
     private var cancellables = Set<AnyCancellable>()
     private lazy var dataSource = makeDataSource()
@@ -39,7 +45,7 @@ final class MainViewController: UIViewController {
         let input: MainViewModelInput = (
             cellTapped: Empty().eraseToAnyPublisher(),
             searchText: searchTextChangedSubject.eraseToAnyPublisher(),
-            viewWillAppear: Empty().eraseToAnyPublisher()
+            viewWillAppear: viewWillAppearSubject.eraseToAnyPublisher()
         )
 
         let output: MainViewModelOutput = input |> liveMainViewModel

@@ -44,8 +44,9 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     private func setUpLayout() {
         gifImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(8.0)
-            $0.height.width.equalTo(64.0)
+            $0.leading.equalToSuperview().offset(16.0)
+            $0.top.bottom.equalToSuperview()
+            $0.width.equalTo(gifImageView.snp.height)
         }
 
         gifTextLabel.snp.makeConstraints {
