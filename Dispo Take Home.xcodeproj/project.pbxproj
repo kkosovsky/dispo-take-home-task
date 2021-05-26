@@ -15,8 +15,12 @@
 		E4F47301F5233848646D7FB3 /* UICollectionViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F477BF14992F73F90F7CDC /* UICollectionViewCell+Reusable.swift */; };
 		E4F4750E8C8AEEA346E3EF53 /* GifInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4743CB46E97904CCED399 /* GifInfo.swift */; };
 		E4F4755F16B81BCDDAD07249 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479BB5D27F3040824FEA7 /* SearchResult.swift */; };
+		E4F47585945031EE418BC6A3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47A937129522438B5943A /* Endpoint.swift */; };
 		E4F475B5B6A6DE1D5F7DE5E6 /* Reusable+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47C0AB9CAADFAAA7A3097 /* Reusable+Default.swift */; };
+		E4F476353EF4326E96549C1C /* URLSession+Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47217CACE92E25168B39C /* URLSession+Endpoint.swift */; };
 		E4F47676062E586C7B62BF75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479BD61B616562D91F4AE /* MainView.swift */; };
+		E4F476FD252C098B939781A0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4728C5BBB699D4965507C /* DetailViewModel.swift */; };
+		E4F47788948B5C10301BB7E3 /* MainCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F472EF21306C8E388CD982 /* MainCellPresenter.swift */; };
 		E4F478A417657F7F5BE98EC6 /* UICollectionView+DequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */; };
 		E4F478F71CE291E64E676D44 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4785D4F8A08ECE7736930 /* Reusable.swift */; };
 		E4F4794766379B223BB03498 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47D79507607E0C370638A /* DetailView.swift */; };
@@ -25,6 +29,7 @@
 		E4F47ACF8A09D4E06CCC6FF2 /* TenorAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */; };
 		E4F47B0CF303D9F4AFABDEF3 /* ApiDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47F55E19192C224469C3B /* ApiDetailsResponse.swift */; };
 		E4F47B250F0581C36F7FFEAF /* ApiListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */; };
+		E4F47F8EE036A0CBAEFC3BBA /* DetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47FBB9FAF8943E6295BEB /* DetailViewPresenter.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -38,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		E4F47071FFF7519C2ED55E62 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		E4F47217CACE92E25168B39C /* URLSession+Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Endpoint.swift"; sourceTree = "<group>"; };
+		E4F4728C5BBB699D4965507C /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		E4F472EF21306C8E388CD982 /* MainCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellPresenter.swift; sourceTree = "<group>"; };
 		E4F474397714C7D55B4C79D1 /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
 		E4F4743CB46E97904CCED399 /* GifInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
 		E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
@@ -50,9 +58,11 @@
 		E4F479BD61B616562D91F4AE /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiListResponse.swift; sourceTree = "<group>"; };
 		E4F47A67350CC01B757394C5 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4F47A937129522438B5943A /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E4F47C0AB9CAADFAAA7A3097 /* Reusable+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+Default.swift"; sourceTree = "<group>"; };
 		E4F47D79507607E0C370638A /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E4F47F55E19192C224469C3B /* ApiDetailsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDetailsResponse.swift; sourceTree = "<group>"; };
+		E4F47FBB9FAF8943E6295BEB /* DetailViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewPresenter.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */,
+				E4F47A937129522438B5943A /* Endpoint.swift */,
 			);
 			path = ApiClient;
 			sourceTree = "<group>";
@@ -129,8 +140,17 @@
 			children = (
 				E4F47C677520F540E9552886 /* Reusable */,
 				E4F4789EC97BD316132C8CCA /* UICollectionView */,
+				E4F47A3F86393305F8B5B655 /* URLSession */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4F47A3F86393305F8B5B655 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				E4F47217CACE92E25168B39C /* URLSession+Endpoint.swift */,
+			);
+			path = URLSession;
 			sourceTree = "<group>";
 		};
 		E4F47BC451D540D2E06C8BD1 /* Functional */ = {
@@ -201,6 +221,7 @@
 				E4F479BD61B616562D91F4AE /* MainView.swift */,
 				E4F47A67350CC01B757394C5 /* MainCollectionViewCell.swift */,
 				E4F47071FFF7519C2ED55E62 /* Section.swift */,
+				E4F472EF21306C8E388CD982 /* MainCellPresenter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -210,6 +231,8 @@
 			children = (
 				FF9415D125EED2590029E28F /* DetailViewController.swift */,
 				E4F47D79507607E0C370638A /* DetailView.swift */,
+				E4F47FBB9FAF8943E6295BEB /* DetailViewPresenter.swift */,
+				E4F4728C5BBB699D4965507C /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -324,6 +347,11 @@
 				E4F47B0CF303D9F4AFABDEF3 /* ApiDetailsResponse.swift in Sources */,
 				E4F47958B61ED853C536D145 /* Media.swift in Sources */,
 				E4F4794766379B223BB03498 /* DetailView.swift in Sources */,
+				E4F47788948B5C10301BB7E3 /* MainCellPresenter.swift in Sources */,
+				E4F47F8EE036A0CBAEFC3BBA /* DetailViewPresenter.swift in Sources */,
+				E4F476FD252C098B939781A0 /* DetailViewModel.swift in Sources */,
+				E4F47585945031EE418BC6A3 /* Endpoint.swift in Sources */,
+				E4F476353EF4326E96549C1C /* URLSession+Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

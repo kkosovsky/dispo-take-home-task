@@ -17,31 +17,14 @@ struct TenorAPIClient: TenorApiClientType {
 
 extension TenorAPIClient {
 
-    private static var gifInfoTransform: (String) -> AnyPublisher<GifInfo, Never> = { query in
-        var components = URLComponents(
-            url: URL(string: "https://g.tenor.com/v1/gifs")!,
-            resolvingAgainstBaseURL: false
-        )!
-        components.queryItems = [
-            .init(name: "ids", value: query),
-            .init(name: "key", value: Constants.tenorApiKey),
-        ]
-        let url = components.url!
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { element -> Data in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
+    private static var gifInfoTransform: (String) -> AnyPublisher<GifInfo, Never> = { id in
+        URLSession.shared.dataTaskPublisher(for: .gifInfo(id: id))
             .decode(type: ApiDetailsResponse.self, decoder: JSONDecoder())
             .map {
                 GifInfo(
                     id: $0.results[0].id,
                     gifUrl: $0.results[0].media[0].gif.url,
-                    title: $0.results[0].title,
+                    title: $0.results[0].title.isEmpty ? "No title" : $0.results[0].title,
                     shares: $0.results[0].shares,
                     tenorUrl: $0.results[0].itemurl,
                     tags: $0.results[0].tags
@@ -56,25 +39,7 @@ extension TenorAPIClient {
     }
 
     private static var searchGifsTransform: (String) -> AnyPublisher<[SearchResult], Never> = { query in
-        var components = URLComponents(
-            url: URL(string: "https://g.tenor.com/v1/search")!,
-            resolvingAgainstBaseURL: false
-        )!
-        components.queryItems = [
-            .init(name: "q", value: query),
-            .init(name: "key", value: Constants.tenorApiKey),
-            .init(name: "limit", value: "30"),
-        ]
-        let url = components.url!
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { element -> Data in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
+        URLSession.shared.dataTaskPublisher(for: .search(query: query))
             .decode(type: APIListResponse.self, decoder: JSONDecoder())
             .map { response in
                 response.results.map {
@@ -92,24 +57,7 @@ extension TenorAPIClient {
     }
 
     private static var featuredGifTransform: () -> AnyPublisher<[SearchResult], Never> = {
-        var components = URLComponents(
-            url: URL(string: "https://g.tenor.com/v1/trending")!,
-            resolvingAgainstBaseURL: false
-        )!
-        components.queryItems = [
-            .init(name: "key", value: Constants.tenorApiKey),
-            .init(name: "limit", value: "30"),
-        ]
-        let url = components.url!
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { element -> Data in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
+        URLSession.shared.dataTaskPublisher(for: .featuredGifs)
             .decode(type: APIListResponse.self, decoder: JSONDecoder())
             .map { response in
                 response.results.map {

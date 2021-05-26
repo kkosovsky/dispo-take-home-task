@@ -1,5 +1,4 @@
 import Combine
-import UIKit
 
 typealias MainViewModelInput = (
     cellTapped: AnyPublisher<SearchResult, Never>,
@@ -29,12 +28,12 @@ func mainViewModel(input: MainViewModelInput) -> (TenorApiClientType) -> MainVie
 
         let searchResults = input.searchText
             .filter { !$0.isEmpty }
-            .map {
-                apiClient.searchGIFs($0)
-            }
+            .map(apiClient.searchGIFs)
             .switchToLatest()
 
-        let loadResults = searchResults.merge(with: featuredGifs).eraseToAnyPublisher()
+        let loadResults = searchResults
+            .merge(with: featuredGifs)
+            .eraseToAnyPublisher()
 
         return MainViewModelOutput(loadResults: loadResults, pushDetailView: input.cellTapped)
     }

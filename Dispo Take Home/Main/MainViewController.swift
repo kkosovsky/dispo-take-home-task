@@ -6,6 +6,10 @@ final class MainViewController: UIViewController {
 
     // MARK: - Lifecycle
 
+    private lazy var mainView: MainView = {
+        MainView()
+    }()
+
     override func loadView() {
         view = mainView
     }
@@ -13,6 +17,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = mainView.searchBar
+        mainView.searchBar.delegate = self
         setUpCollectionView()
         bindViewModel()
     }
@@ -32,15 +37,12 @@ final class MainViewController: UIViewController {
     private var searchResults: [SearchResult] = []
     private var cancellables = Set<AnyCancellable>()
     private lazy var dataSource = makeDataSource()
-    private lazy var mainView: MainView = {
-        MainView()
-    }()
 
     private func setUpCollectionView() {
         mainView.collectionView.registerCell(MainCollectionViewCell.self)
         mainView.collectionView.dataSource = dataSource
         mainView.collectionView.delegate = self
-        mainView.searchBar.delegate = self
+        mainView.collectionView.prefetchDataSource = self
     }
 
     private func bindViewModel() {
@@ -53,16 +55,16 @@ final class MainViewController: UIViewController {
         let output: MainViewModelOutput = input |> liveMainViewModel
 
         output.loadResults
-            .sink { [weak self] results in
-                self?.searchResults = results
-                self?.applySnapshot(with: results)
+            .sink { [unowned self] results in
+                self.searchResults = results
+                self.applySnapshot(with: results)
             }
             .store(in: &cancellables)
 
         output.pushDetailView
-            .sink { [weak self] result in
+            .sink { [unowned self] result in
                 let viewController = DetailViewController(searchResult: result)
-                self?.navigationController?.pushViewController(viewController, animated: true)
+                self.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: &cancellables)
     }
@@ -77,30 +79,15 @@ final class MainViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
-    let downloader = ImageDownloader.default
-
-    let cache = ImageCache.default
-
     private func makeDataSource() -> DataSource {
         DataSource(collectionView: mainView.collectionView) { (collectionView, indexPath, searchResult) in
-            let cell = collectionView.dequeueCell(MainCollectionViewCell.self, for: indexPath)
-            cell.gifTextLabel.text = searchResult.text
-            if let image = self.cache.retrieveImageInMemoryCache(forKey: searchResult.gifUrl.absoluteString) {
-                cell.gifImageView.image = image
-                return cell
-            }
-
-            cell.downloadTask = self.downloader.downloadImage(with: searchResult.gifUrl) { result in
-                switch result {
-                case .success(let value):
-                    cell.gifImageView.image = value.image
-                    self.cache.store(value.image, forKey: searchResult.gifUrl.absoluteString, toDisk: false)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-
-            return cell
+            collectionView.dequeueCell(MainCollectionViewCell.self, for: indexPath)
+                |> MainCollectionViewCell.withTitle(searchResult.text)
+                |> MainCollectionViewCell.withImage(
+                searchResult.gifUrl,
+                cache: ImageCache.default,
+                downloader: ImageDownloader.default
+            )
         }
     }
 }
@@ -116,6 +103,13 @@ extension MainViewController: UISearchBarDelegate {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         cellTappedSubject.send(searchResults[indexPath.item])
+    }
+}
+
+extension MainViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let urls = searchResults.map { $0.gifUrl }
+        ImagePrefetcher(urls: urls).start()
     }
 }
 

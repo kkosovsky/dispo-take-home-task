@@ -1,7 +1,7 @@
 import Combine
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     // MARK: - Initialization
 
@@ -10,9 +10,7 @@ class DetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
 
     // MARK: - Lifecycle
 
@@ -24,12 +22,13 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let output = (searchResult.id |> TenorAPIClient.live.gifInfo)
-        output.sink { [weak self] gifInfo in
-            self?.detailView.gifImageView.kf.setImage(with: gifInfo.gifUrl)
-            self?.detailView.titleLabel.text = gifInfo.title
-            self?.detailView.sharesLabel.text = "\(gifInfo.shares) shares"
-            self?.detailView.tagsLabel.text = gifInfo.tags.reduce(into: "", {$0 + ", " + $1})
+        let output = Just(searchResult).eraseToAnyPublisher() |> liveDetailViewModel
+        output.sink { [unowned self] gifInfo in
+            self.detailView
+                |> DetailView.withTitle(gifInfo.title)
+                |> DetailView.withShares(gifInfo.shares)
+                |> DetailView.withTags(gifInfo.tags)
+                |> DetailView.withImage(gifInfo.gifUrl)
         }.store(in: &cancellables)
     }
 

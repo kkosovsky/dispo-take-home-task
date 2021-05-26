@@ -1,10 +1,13 @@
+import Kingfisher
 import SnapKit
 import UIKit
 
 final class DetailView: UIView {
 
-    let gifImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
+    // MARK: - Subviews
+
+    let gifImageView: AnimatedImageView = {
+        let imageView = AnimatedImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -51,8 +54,8 @@ final class DetailView: UIView {
     private func setUpLayout() {
         gifImageView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).offset(16.0)
-            $0.leading.equalToSuperview().offset(32.0)
-            $0.trailing.equalToSuperview().offset(-32.0)
+            $0.leading.equalTo(safeAreaLayoutGuide).offset(32.0)
+            $0.trailing.equalTo(safeAreaLayoutGuide).offset(-32.0)
         }
 
         titleLabel.snp.makeConstraints {

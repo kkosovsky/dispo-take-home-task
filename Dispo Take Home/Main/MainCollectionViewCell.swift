@@ -4,10 +4,9 @@ import UIKit
 
 final class MainCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - DownloadTask
 
-    var downloadTask: DownloadTask?
-
-    // MARK: - Subviews
+    var gifDownloadTask: DownloadTask?
 
     var gifImageView: AnimatedImageView = {
         let imageView = AnimatedImageView()
@@ -16,7 +15,9 @@ final class MainCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
-    let gifTextLabel: UILabel = UILabel(frame: .zero)
+    // MARK: - Subviews
+
+    let gifTitleLabel: UILabel = UILabel(frame: .zero)
 
     // MARK: Initialization
 
@@ -32,16 +33,16 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        downloadTask?.cancel()
+        gifDownloadTask?.cancel()
         gifImageView.animationImages = nil
         gifImageView.image = nil
-        gifTextLabel.text = nil
+        gifTitleLabel.text = nil
     }
 
     // MARK: - Private
 
     private func addSubviews() {
-        [gifImageView, gifTextLabel].forEach {
+        [gifImageView, gifTitleLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -54,7 +55,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
             $0.width.equalTo(gifImageView.snp.height)
         }
 
-        gifTextLabel.snp.makeConstraints {
+        gifTitleLabel.snp.makeConstraints {
             $0.leading.equalTo(gifImageView.snp.trailing).offset(16.0)
             $0.trailing.equalToSuperview()
             $0.centerYWithinMargins.equalToSuperview()
