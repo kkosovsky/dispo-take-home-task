@@ -1,12 +1,16 @@
+import Kingfisher
 import SnapKit
 import UIKit
 
 final class MainCollectionViewCell: UICollectionViewCell {
 
+
+    var downloadTask: DownloadTask?
+
     // MARK: - Subviews
 
-    var gifImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
+    var gifImageView: AnimatedImageView = {
+        let imageView = AnimatedImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -28,6 +32,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        downloadTask?.cancel()
         gifImageView.animationImages = nil
         gifImageView.image = nil
         gifTextLabel.text = nil

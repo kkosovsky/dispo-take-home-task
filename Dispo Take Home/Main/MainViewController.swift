@@ -77,16 +77,24 @@ final class MainViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
+    let downloader = ImageDownloader.default
+
+    let cache = ImageCache.default
+
     private func makeDataSource() -> DataSource {
         DataSource(collectionView: mainView.collectionView) { (collectionView, indexPath, searchResult) in
             let cell = collectionView.dequeueCell(MainCollectionViewCell.self, for: indexPath)
             cell.gifTextLabel.text = searchResult.text
+            if let image = self.cache.retrieveImageInMemoryCache(forKey: searchResult.gifUrl.absoluteString) {
+                cell.gifImageView.image = image
+                return cell
+            }
 
-            let downloader = ImageDownloader.default
-            downloader.downloadImage(with: searchResult.gifUrl) { result in
+            cell.downloadTask = self.downloader.downloadImage(with: searchResult.gifUrl) { result in
                 switch result {
                 case .success(let value):
                     cell.gifImageView.image = value.image
+                    self.cache.store(value.image, forKey: searchResult.gifUrl.absoluteString, toDisk: false)
                 case .failure(let error):
                     print(error)
                 }
