@@ -36,9 +36,6 @@ func mainViewModel(input: MainViewModelInput) -> (TenorApiClientType) -> MainVie
 
         let loadResults = searchResults.merge(with: featuredGifs).eraseToAnyPublisher()
 
-        let pushDetailView = Empty<SearchResult, Never>()
-            .eraseToAnyPublisher()
-
-        return MainViewModelOutput(loadResults: loadResults, pushDetailView: pushDetailView)
+        return MainViewModelOutput(loadResults: loadResults, pushDetailView: input.cellTapped)
     }
 }

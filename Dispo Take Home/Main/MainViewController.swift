@@ -28,6 +28,7 @@ final class MainViewController: UIViewController {
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, SearchResult>
     private let searchTextChangedSubject = PassthroughSubject<String, Never>()
     private let viewWillAppearSubject = PassthroughSubject<Void, Never>()
+    private let cellTappedSubject = PassthroughSubject<SearchResult, Never>()
     private var searchResults: [SearchResult] = []
     private var cancellables = Set<AnyCancellable>()
     private lazy var dataSource = makeDataSource()
@@ -38,12 +39,13 @@ final class MainViewController: UIViewController {
     private func setUpCollectionView() {
         mainView.collectionView.registerCell(MainCollectionViewCell.self)
         mainView.collectionView.dataSource = dataSource
+        mainView.collectionView.delegate = self
         mainView.searchBar.delegate = self
     }
 
     private func bindViewModel() {
         let input: MainViewModelInput = (
-            cellTapped: Empty().eraseToAnyPublisher(),
+            cellTapped: cellTappedSubject.eraseToAnyPublisher(),
             searchText: searchTextChangedSubject.eraseToAnyPublisher(),
             viewWillAppear: viewWillAppearSubject.eraseToAnyPublisher()
         )
@@ -52,13 +54,15 @@ final class MainViewController: UIViewController {
 
         output.loadResults
             .sink { [weak self] results in
+                self?.searchResults = results
                 self?.applySnapshot(with: results)
             }
             .store(in: &cancellables)
 
         output.pushDetailView
             .sink { [weak self] result in
-                // push detail view
+                let viewController = DetailViewController(searchResult: result)
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: &cancellables)
     }
@@ -100,3 +104,11 @@ extension MainViewController: UISearchBarDelegate {
         searchTextChangedSubject.send(searchText)
     }
 }
+
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellTappedSubject.send(searchResults[indexPath.item])
+    }
+}
+
+
