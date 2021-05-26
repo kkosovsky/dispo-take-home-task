@@ -51,13 +51,13 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     private func setUpLayout() {
         gifImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16.0)
+            $0.leading.equalToSuperview().offset(Margin.small)
             $0.top.bottom.equalToSuperview()
             $0.width.equalTo(gifImageView.snp.height)
         }
 
         gifTitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(gifImageView.snp.trailing).offset(16.0)
+            $0.leading.equalTo(gifImageView.snp.trailing).offset(Margin.small)
             $0.trailing.equalToSuperview()
             $0.centerYWithinMargins.equalToSuperview()
         }

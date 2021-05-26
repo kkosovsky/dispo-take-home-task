@@ -53,23 +53,23 @@ final class DetailView: UIView {
 
     private func setUpLayout() {
         gifImageView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide).offset(16.0)
-            $0.leading.equalTo(safeAreaLayoutGuide).offset(32.0)
-            $0.trailing.equalTo(safeAreaLayoutGuide).offset(-32.0)
+            $0.top.equalTo(safeAreaLayoutGuide).offset(Margin.small)
+            $0.leading.equalTo(safeAreaLayoutGuide).offset(Margin.regular)
+            $0.trailing.equalTo(safeAreaLayoutGuide).offset(-Margin.regular)
         }
 
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(gifImageView.snp.bottom).offset(16.0)
+            $0.top.equalTo(gifImageView.snp.bottom).offset(Margin.small)
             $0.leading.trailing.equalToSuperview()
         }
 
         sharesLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(16.0)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(Margin.small)
             $0.leading.trailing.equalToSuperview()
         }
 
         tagsLabel.snp.makeConstraints {
-            $0.top.equalTo(sharesLabel.snp.bottom).offset(16.0)
+            $0.top.equalTo(sharesLabel.snp.bottom).offset(Margin.small)
             $0.leading.trailing.equalToSuperview()
         }
     }
