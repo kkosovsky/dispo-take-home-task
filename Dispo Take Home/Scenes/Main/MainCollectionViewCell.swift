@@ -8,7 +8,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     var gifDownloadTask: DownloadTask?
 
-    var gifImageView: AnimatedImageView = {
+    let gifImageView: AnimatedImageView = {
         let imageView = AnimatedImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true

@@ -16,7 +16,6 @@ struct TenorAPIClient: TenorApiClientType {
 // MARK: - Live Implementation
 
 extension TenorAPIClient {
-
     private static var gifInfoTransform: (String) -> AnyPublisher<GifInfo, Never> = { id in
         URLSession.shared.dataTaskPublisher(for: .gifInfo(id: id))
             .decode(type: ApiDetailsResponse.self, decoder: JSONDecoder())

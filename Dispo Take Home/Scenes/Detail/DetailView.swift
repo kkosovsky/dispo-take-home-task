@@ -13,23 +13,9 @@ final class DetailView: UIView {
         return imageView
     }()
 
-    let titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.textAlignment = .center
-        return label
-    }()
-
-    let sharesLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.textAlignment = .center
-        return label
-    }()
-
-    let tagsLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.textAlignment = .center
-        return label
-    }()
+    let titleLabel = UILabel(frame: .zero) |> UILabel.aligned(.center)
+    let sharesLabel = UILabel(frame: .zero) |> UILabel.aligned(.center)
+    let tagsLabel = UILabel(frame: .zero) |> UILabel.aligned(.center)
 
     // MARK: - Initialization
 

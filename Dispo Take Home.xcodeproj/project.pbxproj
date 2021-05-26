@@ -23,6 +23,7 @@
 		E4F476FD252C098B939781A0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4728C5BBB699D4965507C /* DetailViewModel.swift */; };
 		E4F47788948B5C10301BB7E3 /* MainCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F472EF21306C8E388CD982 /* MainCellPresenter.swift */; };
 		E4F478A417657F7F5BE98EC6 /* UICollectionView+DequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */; };
+		E4F478C8C49D13A295CAAEDD /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4757814E48F1C6F7F6528 /* UILabel+Style.swift */; };
 		E4F478F71CE291E64E676D44 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4785D4F8A08ECE7736930 /* Reusable.swift */; };
 		E4F4794766379B223BB03498 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47D79507607E0C370638A /* DetailView.swift */; };
 		E4F47958B61ED853C536D145 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4776488195868D11D290B /* Media.swift */; };
@@ -50,6 +51,7 @@
 		E4F472EF21306C8E388CD982 /* MainCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellPresenter.swift; sourceTree = "<group>"; };
 		E4F474397714C7D55B4C79D1 /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
 		E4F4743CB46E97904CCED399 /* GifInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
+		E4F4757814E48F1C6F7F6528 /* UILabel+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
 		E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
 		E4F476B8A072B779F50343FC /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		E4F4776488195868D11D290B /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
@@ -98,6 +100,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		88CBA404265F046400ED7A1E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415B425EECD340029E28F /* AppDelegate.swift */,
+				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		88CBA405265F047200ED7A1E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415E825EEEA4C0029E28F /* Main */,
+				FF9415EA25EEEA510029E28F /* Detail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		E4F47807D46CFBFB2A046576 /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +163,7 @@
 				E4F47C677520F540E9552886 /* Reusable */,
 				E4F4789EC97BD316132C8CCA /* UICollectionView */,
 				E4F47A3F86393305F8B5B655 /* URLSession */,
+				E4F47C41AFF964C3BD8807C8 /* UILabel */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,6 +182,14 @@
 				E4F476B8A072B779F50343FC /* Operators.swift */,
 			);
 			path = Functional;
+			sourceTree = "<group>";
+		};
+		E4F47C41AFF964C3BD8807C8 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				E4F4757814E48F1C6F7F6528 /* UILabel+Style.swift */,
+			);
+			path = UILabel;
 			sourceTree = "<group>";
 		};
 		E4F47C677520F540E9552886 /* Reusable */ = {
@@ -193,10 +222,8 @@
 		FF9415B325EECD340029E28F /* Dispo Take Home */ = {
 			isa = PBXGroup;
 			children = (
-				FF9415B425EECD340029E28F /* AppDelegate.swift */,
-				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
-				FF9415E825EEEA4C0029E28F /* Main */,
-				FF9415EA25EEEA510029E28F /* Detail */,
+				88CBA404265F046400ED7A1E /* App */,
+				88CBA405265F047200ED7A1E /* Scenes */,
 				FF9415EC25EEEA560029E28F /* Util */,
 				FF9415BA25EECD350029E28F /* Assets.xcassets */,
 				FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */,
@@ -356,6 +383,7 @@
 				E4F476FD252C098B939781A0 /* DetailViewModel.swift in Sources */,
 				E4F47585945031EE418BC6A3 /* Endpoint.swift in Sources */,
 				E4F476353EF4326E96549C1C /* URLSession+Endpoint.swift in Sources */,
+				E4F478C8C49D13A295CAAEDD /* UILabel+Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

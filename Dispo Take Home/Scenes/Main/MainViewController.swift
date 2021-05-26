@@ -112,5 +112,3 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
         ImagePrefetcher(urls: urls).start()
     }
 }
-
-
