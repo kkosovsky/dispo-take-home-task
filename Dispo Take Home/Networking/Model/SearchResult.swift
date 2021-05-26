@@ -1,8 +1,7 @@
 import UIKit
 
 struct SearchResult: Hashable {
-  let id: String
-  let gifUrl: URL
-  let preview: URL
-  let text: String
+    let id: String
+    let gifUrl: URL
+    let text: String
 }

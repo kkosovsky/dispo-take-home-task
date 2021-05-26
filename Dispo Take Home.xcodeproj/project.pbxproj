@@ -19,8 +19,10 @@
 		E4F47676062E586C7B62BF75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479BD61B616562D91F4AE /* MainView.swift */; };
 		E4F478A417657F7F5BE98EC6 /* UICollectionView+DequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */; };
 		E4F478F71CE291E64E676D44 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4785D4F8A08ECE7736930 /* Reusable.swift */; };
+		E4F47958B61ED853C536D145 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4776488195868D11D290B /* Media.swift */; };
 		E4F47A96C5AB754C7F8758C4 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47A67350CC01B757394C5 /* MainCollectionViewCell.swift */; };
 		E4F47ACF8A09D4E06CCC6FF2 /* TenorAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */; };
+		E4F47B0CF303D9F4AFABDEF3 /* ApiDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F47F55E19192C224469C3B /* ApiDetailsResponse.swift */; };
 		E4F47B250F0581C36F7FFEAF /* ApiListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
@@ -39,6 +41,7 @@
 		E4F4743CB46E97904CCED399 /* GifInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
 		E4F475D3CBCFA49AEA55E1A6 /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
 		E4F476B8A072B779F50343FC /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		E4F4776488195868D11D290B /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		E4F477BF14992F73F90F7CDC /* UICollectionViewCell+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		E4F4785D4F8A08ECE7736930 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		E4F478F9FB95D5E41882AADA /* TenorAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenorAPIClient.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiListResponse.swift; sourceTree = "<group>"; };
 		E4F47A67350CC01B757394C5 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		E4F47C0AB9CAADFAAA7A3097 /* Reusable+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+Default.swift"; sourceTree = "<group>"; };
+		E4F47F55E19192C224469C3B /* ApiDetailsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDetailsResponse.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				E4F479BB5D27F3040824FEA7 /* SearchResult.swift */,
 				E4F4743CB46E97904CCED399 /* GifInfo.swift */,
 				E4F479F290BFACF2D722D1BF /* ApiListResponse.swift */,
+				E4F47F55E19192C224469C3B /* ApiDetailsResponse.swift */,
+				E4F4776488195868D11D290B /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +318,8 @@
 				E4F47ACF8A09D4E06CCC6FF2 /* TenorAPIClient.swift in Sources */,
 				E4F47B250F0581C36F7FFEAF /* ApiListResponse.swift in Sources */,
 				E4F472A19C09C777E2CD524B /* Operators.swift in Sources */,
+				E4F47B0CF303D9F4AFABDEF3 /* ApiDetailsResponse.swift in Sources */,
+				E4F47958B61ED853C536D145 /* Media.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
