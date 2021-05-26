@@ -16,16 +16,20 @@ class DetailViewController: UIViewController {
 
     // MARK: - Lifecycle
 
+    private lazy var detailView = DetailView()
+
     override func loadView() {
-        view = UIView()
-        view.backgroundColor = .white
+        view = detailView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let output = (searchResult.id |> TenorAPIClient.live.gifInfo)
-        output.sink { gifInfo in
-            print(gifInfo)
+        output.sink { [weak self] gifInfo in
+            self?.detailView.gifImageView.kf.setImage(with: gifInfo.gifUrl)
+            self?.detailView.titleLabel.text = gifInfo.title
+            self?.detailView.sharesLabel.text = "\(gifInfo.shares) shares"
+            self?.detailView.tagsLabel.text = gifInfo.tags.reduce(into: "", {$0 + ", " + $1})
         }.store(in: &cancellables)
     }
 
