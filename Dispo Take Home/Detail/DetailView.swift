@@ -8,7 +8,7 @@ final class DetailView: UIView {
 
     let gifImageView: AnimatedImageView = {
         let imageView = AnimatedImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
         return imageView
     }()

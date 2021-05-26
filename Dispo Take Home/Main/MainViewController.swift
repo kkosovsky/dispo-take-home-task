@@ -31,7 +31,7 @@ final class MainViewController: UIViewController {
 
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, SearchResult>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, SearchResult>
-    private let searchTextChangedSubject = PassthroughSubject<String, Never>()
+    private let searchTextChangedSubject = CurrentValueSubject<String, Never>("")
     private let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     private let cellTappedSubject = PassthroughSubject<SearchResult, Never>()
     private var searchResults: [SearchResult] = []

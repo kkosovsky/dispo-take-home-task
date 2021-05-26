@@ -10,8 +10,9 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     var gifImageView: AnimatedImageView = {
         let imageView = AnimatedImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
+        imageView.backgroundColor = .systemTeal
         return imageView
     }()
 

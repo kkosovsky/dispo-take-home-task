@@ -17,12 +17,12 @@ func liveMainViewModel(input: MainViewModelInput) -> MainViewModelOutput {
 
 func mainViewModel(input: MainViewModelInput) -> (TenorApiClientType) -> MainViewModelOutput {
     { apiClient in
-        let emptyText = input.searchText
-            .filter { $0.isEmpty }
-            .map { _ in Void() }
-
         let featuredGifs = input.viewWillAppear
-            .merge(with: emptyText)
+            .combineLatest(input.searchText)
+            .filter({ _, query in
+                query.isEmpty
+            })
+            .map { _ in Void() }
             .map(apiClient.featuredGIFs)
             .switchToLatest()
 
