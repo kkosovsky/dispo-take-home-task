@@ -1,0 +1,3 @@
+protocol Assembly {
+    func assemble()
+}
