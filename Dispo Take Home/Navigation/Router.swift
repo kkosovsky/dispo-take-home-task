@@ -25,7 +25,8 @@ final class Router: Routing {
     func goBack() {
         let stack = navigationController.viewControllers
         if stack.count > 1 {
-            navigationController.popViewController(animated: true)
+            let newStack = Array(stack.dropLast())
+            navigationController.setViewControllers(newStack, animated: true)
         }
     }
 

@@ -2,6 +2,9 @@ import Combine
 import UIKit
 
 final class NavigationActionConfigurator: NavigationActionConfiguratorType {
+
+    // MARK: - NavigationActionConfiguratorType
+
     func configure(controller: UIViewController, with router: Routing) {
         guard var navigationActionProducer = controller as? NavigationActionProducer else { return }
         navigationActionProducer.action.sink { [weak router] action in

@@ -2,8 +2,11 @@ import Foundation
 
 final class DependencyContainer: DependencyContainerType {
 
+    // MARK: - DependencyContainerType
+
     func register<Service>(type: Service.Type, factory: @escaping (DependencyResolver) -> Any) {
-        services["\(type)"] = factory
+        let entry = ServiceEntry(serviceType: type, argumentsType: Never.self, factory: factory)
+        servicesWithArgs["\(type)"] = entry
     }
 
     func register<Service, Arg>(type: Service.Type, factory: @escaping (DependencyResolver, Arg) -> Any) {
@@ -12,7 +15,9 @@ final class DependencyContainer: DependencyContainerType {
     }
 
     func resolve<Service>(type: Service.Type) -> Service {
-        services["\(type)"]?(self) as! Service
+        let entry = servicesWithArgs["\(type)"]!
+        let typedFactory = entry.factory as! (DependencyResolver) -> Any
+        return typedFactory(self) as! Service
     }
 
     func resolve<Service, Arg>(type: Service.Type, arg: Arg) -> Service {
@@ -21,6 +26,5 @@ final class DependencyContainer: DependencyContainerType {
         return typedFactory(self, arg) as! Service
     }
 
-    private var services = Dictionary<String, (DependencyResolver) -> Any>()
     private var servicesWithArgs = Dictionary<String, ServiceEntryType>()
 }

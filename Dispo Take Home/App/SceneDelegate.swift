@@ -7,8 +7,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var assembly: Assembly?
     private lazy var router: Routing = Router(
         navigationController: UINavigationController(),
-        controllerFactory: ControllerFactory(resolver: container),
-        navigationActionConfigurator: NavigationActionConfigurator()
+        controllerFactory: container.resolve(type: ControllerFactoryType.self),
+        navigationActionConfigurator: container.resolve(type: NavigationActionConfiguratorType.self)
     )
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
