@@ -1,5 +1,3 @@
-import Foundation
-
 final class DependencyContainer: DependencyContainerType {
 
     // MARK: - DependencyContainerType

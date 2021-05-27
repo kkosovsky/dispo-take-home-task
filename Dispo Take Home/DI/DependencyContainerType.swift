@@ -1,5 +1,3 @@
-import Foundation
-
 protocol DependencyContainerType: DependencyResolver {
     func register<Service>(type: Service.Type, factory: @escaping (DependencyResolver) -> Any)
     func register<Service, Arg>(type: Service.Type, factory: @escaping (DependencyResolver, Arg) -> Any)

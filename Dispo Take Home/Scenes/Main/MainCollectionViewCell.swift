@@ -8,6 +8,8 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
     var gifDownloadTask: DownloadTask?
 
+    // MARK: - Subviews
+
     let gifImageView: AnimatedImageView = {
         let imageView = AnimatedImageView()
         imageView.contentMode = .scaleToFill
@@ -15,8 +17,6 @@ final class MainCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .systemTeal
         return imageView
     }()
-
-    // MARK: - Subviews
 
     let gifTitleLabel: UILabel = UILabel(frame: .zero)
 

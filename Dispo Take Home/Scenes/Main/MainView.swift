@@ -15,7 +15,7 @@ final class MainView: UIView {
         return collectionView
     }()
 
-    private(set) lazy var searchBar: UISearchBar = {
+    let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "search gifs..."
         return searchBar
