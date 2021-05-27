@@ -1,6 +1,6 @@
 import Combine
 
-typealias DetailViewModelInput = AnyPublisher<SearchResult, Never>
+typealias DetailViewModelInput = AnyPublisher<String, Never>
 typealias DetailViewModelOutput = AnyPublisher<GifInfo, Never>
 
 func liveDetailViewModel(input: DetailViewModelInput) -> DetailViewModelOutput {
@@ -10,7 +10,7 @@ func liveDetailViewModel(input: DetailViewModelInput) -> DetailViewModelOutput {
 func detailViewModel(input: DetailViewModelInput) -> (TenorApiClientType) -> DetailViewModelOutput {
     { apiClient in
         input.map {
-            apiClient.gifInfo($0.id)
+            apiClient.gifInfo($0)
         }
         .switchToLatest()
         .eraseToAnyPublisher()

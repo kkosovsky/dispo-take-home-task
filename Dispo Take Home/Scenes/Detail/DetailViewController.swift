@@ -1,12 +1,20 @@
 import Combine
 import UIKit
 
-final class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController, NavigationActionProducer {
+
+    // MARK: - NavigationActionProducer
+
+    var action: AnyPublisher<NavigationAction, Never> {
+        navigationActionSubject.eraseToAnyPublisher()
+    }
+
+    var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initialization
 
-    init(searchResult: SearchResult) {
-        self.searchResult = searchResult
+    init(gifId: String) {
+        self.gifId = gifId
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -22,7 +30,14 @@ final class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let output = Just(searchResult).eraseToAnyPublisher() |> liveDetailViewModel
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Back",
+            style: .plain,
+            target: self,
+            action: #selector(goBack)
+        )
+
+        let output = Just(gifId).eraseToAnyPublisher() |> liveDetailViewModel
         output.sink { [unowned self] gifInfo in
             self.detailView
                 |> DetailView.withTitle(gifInfo.title)
@@ -34,6 +49,10 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Private
 
-    private let searchResult: SearchResult
-    private var cancellables = Set<AnyCancellable>()
+    private let gifId: String
+    private let navigationActionSubject = PassthroughSubject<NavigationAction, Never>()
+
+    @objc private func goBack() {
+        navigationActionSubject.send(.goBack)
+    }
 }

@@ -2,7 +2,15 @@ import Combine
 import Kingfisher
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController, NavigationActionProducer {
+
+    // MARK: - NavigationActionProducer
+
+    var action: AnyPublisher<NavigationAction, Never> {
+        navigationActionSubject.eraseToAnyPublisher()
+    }
+
+    var cancellables = Set<AnyCancellable>()
 
     // MARK: - Lifecycle
 
@@ -34,8 +42,8 @@ final class MainViewController: UIViewController {
     private let searchTextChangedSubject = CurrentValueSubject<String, Never>("")
     private let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     private let cellTappedSubject = PassthroughSubject<SearchResult, Never>()
+    private let navigationActionSubject = PassthroughSubject<NavigationAction, Never>()
     private var searchResults: [SearchResult] = []
-    private var cancellables = Set<AnyCancellable>()
     private lazy var dataSource = makeDataSource()
 
     private func setUpCollectionView() {
@@ -63,8 +71,7 @@ final class MainViewController: UIViewController {
 
         output.pushDetailView
             .sink { [unowned self] result in
-                let viewController = DetailViewController(searchResult: result)
-                self.navigationController?.pushViewController(viewController, animated: true)
+                navigationActionSubject.send(.goTo(route: .details(gifId: result.id)))
             }
             .store(in: &cancellables)
     }
